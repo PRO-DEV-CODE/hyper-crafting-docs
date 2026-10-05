@@ -16,7 +16,7 @@
 | นับของในตู้ | `Hyper_Vault:VaultGetCounts` | server | ตัวเลข "มีอยู่" ที่รวมกระเป๋ากับตู้ |
 | หักของจากตู้ | `Hyper_Vault:VaultTakeItems` | server | ตอนหักวัตถุดิบที่กระเป๋าไม่พอ |
 | คืนของเข้าตู้ | `Hyper_Vault:VaultAddItems` | server | ตอนยกเลิกคราฟหรือคืนของ |
-| แจ้งเตือนผู้เล่น | `Hyper_Notifyall:sendNotify` | client | ผลคราฟ ขึ้นเลเวล ข้อความผิดพลาด |
+| แจ้งเตือนผู้เล่น | `Hyper_Notifyall:sendNotify` | client | ผลคราฟ ข้อความผิดพลาด |
 | ป้ายช่วยเหลือตอนเข้าใกล้โต๊ะ | `Hyper_Notifyall:showHelpNotify` / `hideHelpNotify` | client | "กด E เปิดโต๊ะคราฟ" |
 | ป้ายข้อความบนจอ | `Hyper_Notifyall:ShowTextUI` | client | ข้อความกำกับโต๊ะ |
 | เก็บ audit trail | `Hyper_Discordlogs:CreateLog` | server | ทุกครั้งที่ของหรือเงินเปลี่ยนมือ |
@@ -30,7 +30,6 @@
 | `Hyper_Vault` | ไม่บังคับ | ปิด `Settings.useVault` แล้วใช้แค่ของในกระเป๋าได้ |
 | `Hyper_Discordlogs` | ไม่บังคับ | ไม่มี audit trail (เว็บฮุกตรงยังทำงาน) |
 | `Hyper_Check` | ไม่บังคับ | ข้าม shared script ตัวนี้ได้ |
-| `oxmysql` | **บังคับ** | ระบบเลเวลและ XP ไม่ทำงาน |
 
 ทุก export ถูกเรียกผ่านตัวดักข้อผิดพลาด ถ้า resource ปลายทางไม่อยู่หรือยังไม่สตาร์ท ระบบจะใช้ค่าสำรองแทนแล้วทำงานต่อ ไม่พังทั้งโต๊ะ
 
@@ -49,13 +48,12 @@ Event เหล่านี้เป็นของระบบเอง ใช�
 | `Hyper_Crafting:progress` | server → client | เริ่มจับเวลา |
 | `Hyper_Crafting:done` | server → client | จบงาน พร้อมผล |
 | `Hyper_Crafting:cancelled` | server → client | ยืนยันการยกเลิก |
-| `Hyper_Crafting:setXp` | server → client | อัปเดต XP และเลเวล |
 | `Hyper_Crafting:setVaults` | server → client | ส่งรายการตู้ |
 | `Hyper_Crafting:vaultCounts` | server → client | ส่งจำนวนของในตู้ |
 | `Hyper_Crafting:announce` | server → client | ประกาศทั้งเซิร์ฟตอนคราฟของหายากติด |
 
 ## อยากต่อ export เพิ่ม
 
-ถ้าอยากให้ resource อื่นสั่งงานโต๊ะนี้ได้ (เช่นเปิดโต๊ะจากเมนูอื่น หรืออ่านเลเวลคราฟของผู้เล่น) ต้องเพิ่ม export เองที่ `core/server/main.lua` หรือ `core/client/main.lua` ตอนนี้ยังไม่มีให้
+ถ้าอยากให้ resource อื่นสั่งงานโต๊ะนี้ได้ (เช่นเปิดโต๊ะจากเมนูอื่น) ต้องเพิ่ม export เองที่ `core/server/main.lua` หรือ `core/client/main.lua` ตอนนี้ยังไม่มีให้
 
 ถ้าเพิ่ม ให้ตรวจสิทธิ์และระยะทางซ้ำในฟังก์ชัน export ด้วย อย่าพึ่งว่าผู้เรียกตรวจมาแล้ว

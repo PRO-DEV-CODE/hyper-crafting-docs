@@ -4,7 +4,7 @@
 
 | ไฟล์ | ฝั่ง | ใช้ตั้งอะไร |
 |---|---|---|
-| `config/config.shared.lua` | shared | ค่ากลางทุกโต๊ะ · ระบบเลเวล · ตู้เซฟ · tooltip · ชื่อไอเทม |
+| `config/config.shared.lua` | shared | ค่ากลางทุกโต๊ะ · ตู้เซฟ · tooltip · ชื่อไอเทม |
 | `config/config.craft.lua` | shared | หมวดหมู่และสูตรคราฟทั้งหมด |
 | `config/config.upgrade.lua` | shared | หมวดและรายการอัปเกรด |
 | `config/config.tables.lua` | shared | จุดโต๊ะทุกตัวในแผนที่ |
@@ -36,13 +36,6 @@ Shared.Settings = {
     vaultGroups  = { { group = 'STANDARD', label = 'ตู้เซฟส่วนตัว' } },
     defaultVault = 'STANDARD',
 }
-
-Shared.Leveling = {
-    enabled    = true,
-    xpPerLevel = 100,   -- xp ต่อ 1 เลเวล
-    defaultXp  = 5,     -- xp ต่อชิ้นถ้าสูตรไม่กำหนด
-    maxLevel   = 100,
-}
 ```
 
 `vaultGroups[].group` ต้องตรงกับ `Config.GroupVault` ของ `Hyper_Vault` ไม่งั้นตู้จะไม่ขึ้นในดรอปดาวน์
@@ -58,8 +51,6 @@ Shared.Recipes[1] = {
         time      = 10,               -- วินาทีต่อชิ้น
         rate      = 10,               -- โอกาสสำเร็จ %
         maxAmount = 5,                -- คราฟทีละกี่ชิ้นสูงสุด
-        reqLevel  = 0,                -- เลเวลขั้นต่ำ
-        xp        = 25,               -- xp ต่อชิ้นสำเร็จ
         equipment = { 'card_work' },  -- ต้องมี แต่ไม่ถูกหัก
         cost      = { money = 2000 }, -- money / bank / black_money
         blueprint = {                 -- วัตถุดิบที่หายไป
@@ -102,8 +93,6 @@ methods = {
     materials  = { { item = 'afk', count = 2 } },   -- หักทั้งสำเร็จและพลาด
     keepBaseOnFail = false,           -- false = พลาดเสียของฐาน
     antiBonus  = { { item = 'aed', label = 'ตัวกันอัพเกรดแตก' } },
-    reqLevel   = 0,
-    xp         = 10,
 }
 ```
 

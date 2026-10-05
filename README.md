@@ -12,10 +12,9 @@
 | เฟรมเวิร์ก | ESX (แยก adapter ไว้ที่ `config/framework/esx/`) |
 | Dependency | `Hyper_Notifyall` (แจ้งเตือน + Text UI) |
 | เชื่อมต่อเพิ่ม | `Hyper_Inventory` · `Hyper_Vault` · `Hyper_Discordlogs` · `Hyper_Check` |
-| ฐานข้อมูล | ตาราง `hyper_crafting_xp` (import `hyper_crafting.sql`) |
 | NUI | `html/ui.html` — สองหน้าจอ (คราฟ / อัปเกรด) |
 | ธีมสี | 7 ธีม เลือกด้วย `Config.Theme` |
-| ขนาดโค้ด | 7,320 บรรทัด (Lua 1,993 · JS 1,755 · CSS 2,703 · HTML 327) |
+| ขนาดโค้ด | 7,180 บรรทัด (Lua 2,426 · JS 1,740 · CSS 2,687 · HTML 327) |
 
 ## โต๊ะที่ตั้งไว้ให้แล้ว
 
@@ -29,11 +28,12 @@
 
 ## เริ่มใช้งาน
 
-1. import `hyper_crafting.sql` เข้าฐานข้อมูล (ไม่ import ระบบเลเวลจะไม่ทำงาน)
-2. วางโฟลเดอร์ใน `resources` แล้ว `ensure Hyper_Crafting` ใน `server.cfg`
-3. ตั้งเว็บฮุก Discord (ถ้าต้องการ log) ใน `server.cfg`:
+1. วางโฟลเดอร์ใน `resources` แล้ว `ensure Hyper_Crafting` ใน `server.cfg`
+2. ตั้งเว็บฮุก Discord (ถ้าต้องการ log) ใน `server.cfg`:
    `set hyper_crafting_webhook "https://discord.com/api/webhooks/..."`
-4. แก้สูตรที่ `config/config.craft.lua` และจุดโต๊ะที่ `config/config.tables.lua`
+3. แก้สูตรที่ `config/config.craft.lua` และจุดโต๊ะที่ `config/config.tables.lua`
+
+ไม่ต้อง import ฐานข้อมูล ระบบนี้ไม่เก็บอะไรลง DB
 
 ## ลัดไปหน้าที่ต้องการ
 
